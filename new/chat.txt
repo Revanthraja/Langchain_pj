@@ -1,0 +1,1211 @@
+KARNATAKA INNOVATION & TECHNOLOGY SOCIETY
+GOVERNMENT OF KARNATAKA
+Shanthinagar, Bengaluru – 560 027, Karnataka, India
+A Project Report On
+AUTOMATION IN CARS TO ALERT DRIVERS
+Submitted in Partial Fulfillment of the requirement for the award of the degree of
+BACHELOR OF ENGINEERING
+IN
+COMPUTER SCIENCE AND ENGINEERING
+Submitted BY
+Revanthraja M is the student of SJCIT
+Under the guidance of
+Dr. Bharthi M
+Professor ,
+Dept. of CSE,
+SJCIT
+S. J. C. INSTITUTE OF TECHNOLOGY
+DEPARTMENT OF RESOUCES & DEVELOPMENT
+CHIKKABALLAPUR-562101
+2019-2020ABSTRACT
+According to the statistics, around 20% of the road accidents are caused due to driver fatigue. Under
+sleeping conditions, the driver is not able to respond effectively since his attention is decreased and
+he has a reduced decision-making capability. Usually, there is no one who can see a driver falling
+asleep prior to a crash. It is much more difficult to identify a drowsy driving than drunk driving. An
+attempt is made to determine driver drowsiness by studying vehicle -based measures, behavioral
+measures and physiological measures. A very effective and an intelligent system built into vehicles
+can minimize the accident death toll. A face recognition system, based on image processing in a
+Real time environment, is introduced. The system used in a running env ironment of a vehicle,
+wherein the driver in the vehicle onset is alerted of his drowsiness, thus reducing the rate of
+accidents. This system gives high accuracy rate and low error detection with a quick processing of
+input data. Along with these features it is also cost efficient and easily implementable and installable
+in every type of vehicle, thus minimizing number of accidents caused by driver’s drowsiness.
+iACKNOWLEDGEMENT
+With reverential pranam, we express our sincere gratitude and salutations to the feet of his holiness
+Byravaikya Padmabhushana Sri Sri Sri Dr. Balagangadharanatha Maha Swamiji, & his
+holiness Jagadguru Sri Sri Sri Dr. Nirmalanandanatha Swamiji of Sri Adichunchanagiri Mutt
+for their unlimited blessings. First and foremost, we wish to express our deep sincere feelings of
+gratitude to our institution, Sri Jagadguru Chndrashekaranatha Swamiji Institute of
+Technology. For providing us an opportunity for completing our project Review-I successfully.
+We extend deep sense of sincere gratitude to Dr. Ravi Kumar K M, Principal, S J C
+Institute of Technology, Chickballapura, for providing an opportunity to complete the Project
+Review-I work.
+We extend deep sense of sincere gratitude to Dr. T Munikenche Gowda, Director, B G S
+R&D, S J C Institute of Technology, Chickaballapura, for providing an opportunity to complete
+the Project work.
+We extend special in-depth, heartfelt, and sincere gratitude to Dr. Anitha T N, Head of the
+Department, Computer Science and Engineering, S J C Institute of Technology,
+Chickballapura, for her constant support and valuable guidance of the Project Review-I work.
+We convey our sincere thanks to our Project Guide Dr. Anitha T N, Head of the
+Department, Computer Science and Engineering, S J C Institute of Technology, for her
+constant support, valuable guidance and suggestions of the Project Review-I work.
+We also feel immense pleasure to express deep and profound gratitude to our R & D Nain-
+Coordinator SAFIRA BEGUM, Department of Resources and Development, S J C Institute of
+Technology, for his guidance and suggestions of the Project Review-I work.
+We also thank all those who extended their support and co-operation while bringing out this
+Project Review-I Report.
+Sahana S (1SJ16CS084)
+Shravya M R (1SJ16CS096)
+Shreya R (1SJ16CS098)
+Meghana Krishna (1SJ16CS125)
+iiCONTENTS
+Abstracti
+Acknowledgementii
+Contentsiii
+List of Figuresvi
+List of Tablesvii
+Chapter No
+1
+TitlePage No
+INTRODUCTION1-3
+1.1 OVERVIEW1
+1.2 PROBLEM STATEMENT2
+1.3 SIGNIFICANCE AND RELEVANCE WORK2
+1.4 OBJECTIVE2
+1.5 METHODOLODY2-3
+1.6 ORGANIZATION OF THE REPORT3
+2
+LITERATURE SURVEY5-9
+2.1 DETECTING DROWSINESS WHILE DRIVING5
+BY MEASURING EYE MOVEMENT-A PILOT
+STUDY
+2.2 DROWSINESS, FATIGUE AND POOR SLEEP’S
+5
+CAUSES AND DETECTION: A COMPREHENSIVE
+STUDY
+2.3 A MOBILE APPLICATION FOR DRIVER’S
+6
+DROWSINESS MONITORING BASED ON
+PERCLOS ESTIMATION
+2.4 MACHINE LEARNING AND GRADIENT STATISTICS
+REAL-TIME DRIVER DROWSINESS DETECTION
+iii
+62.5 UNOBTRUSIVE DRIVER DROWSINESS
+7
+PREDICTION USING DRIVING BEHAVIOR
+FROM VEHICULAR SENSORS
+2.6 METHOD OF DETECTION OF EARLY ASLEEP
+8
+WHILE DRIVING USINF COG ANALYSIS
+2.7 REAL-TIME FACE RECOGNITION USING
+8
+FEATURE COMBINATION
+2.8 SMART PHONE APPLICATION FOR DROWINESS
+9
+DETECTION DURING DRIVING
+2.9 INDIVIDUAL STABLE SPACE:AN APPROACH TO
+9
+FACE RECOGNITION UNDER UNCOTROLLED
+CONDITIONS
+3
+4
+SYSTEM ANALYSIS
+10-14
+3.1 INTRODUCTION TO SYSTEM ANALYSIS12
+3.2 EXISTING SYSTEM12
+3.3 PROPOSED SYSTEM14
+SYSTEM REQUIREMENTS AND
+15-22
+SPECIFICATIONS
+4.1 FUNCTIONAL REQUIREMENTS16-18
+4.2 NON-FUNCTIONAL REQUIREMENTS18
+4.3 HARDWARE AND SOFTWARE REQUIREMENTS18-22
+5
+SYSTEM DESIGN
+23-27
+5.1 SYSTEM ARCHITECTURE24-25
+5.2 USE CASE DIAGRAM25-26
+5.3 DATA FLOW DIAGRAM26-27
+6
+IMPLEMENTATION
+28-39
+6.1 COMPONENTS29-32
+6.2 PSEUDO CODE32-39
+iv7
+8
+9
+SYSTEM TESTING
+40-44
+7.1 METHODS OF TESTING41-42
+7.2 TEST CASES42-44
+PERFORMANCE ANALYSIS
+45-47
+8.1 STUDY SYSTEM46-47
+8.2 PERFORMANCE EVALUATION GRAPH47
+CONCLUSION AND FUTURE
+ENHANCEMENT
+48-49
+9.1 CONCLUSION49
+9.2 FUTURE ENHANCEMENT49
+10REFERENCES51
+11APPENDIX A53
+12APPENDIX B55-57
+vList of Figures
+FigureDescriptionPage No
+Figure 5.3Data flow diagram26
+Figure 6.1Power supply block diagram30
+Figure 6.2Alarm Buzzer31
+Figure 6.3Embedded image processor unit31
+Figure 6.4Bluetooth transmitter and receiver32
+Figure 7.1Starting message in LCD display42
+Figure 7.2Alert in LCD display43
+Figure 7.3SMS to registered number44
+Figure 8.1PERCLOUS vs Time47
+Figure B.1PCB layout55
+Figure B.2Detection of sleepiness55
+Figure B.3Placement of system in dashboard56
+Figure B.4Face recognition system56
+Figure B.5Differentiate between closed and open eye56
+viList of Tables
+TableDescriptionPage No
+Table 7.1Test case- 142
+Table 7.2Test case- 243
+Table 7.3Test case- 343
+Table 7.4Test case- 444
+viiCHAPTER 1
+INTRODUCTIONCHAPTER - 1
+INTRODUCTION
+1.1Overview
+A driver’s drowsiness is conceived as one of the major causes of traffic accidents. Car
+accidents can also be caused due to fatigue which is in turn due to sleep deprivation. Under
+sleeping conditions the driver is not able to respond effectively since his attention is
+decreased and he has a reduced decision-making capability. Every year about 421000 people
+injured in crashes those have involved a driver who was distracted in someway. 78% of all
+distracted drivers are distracted because they have been texting while driving. A warning
+system based on an automatic detection of the human drowsy state, would help to prevent car
+collisions. In this study we focus on finding methods to detect signs of drowsiness and warn
+the car driver before driving condition becomes dangerous. The method we use here is the
+driver’s facial expression to detect drowsiness. Eye closure rate is one of the most reliable
+measures for an immediate and stable detection of drowsiness. Eye blink has become a
+favorite indicator for drowsiness. Opening or closing of the eye was determined by the
+exposed length of the pupil. When 80% or more of the pupil is covered the eye is considered
+closed.
+The technology that’s being implemented is Face Recognition System(FRS) which uses
+sensor cameras, infrared illuminators. The movement of the face is tracked. The system
+detects drowsiness by analyzing eye closures and head poses to determine fatigue and
+distraction. When the system detects signs of drowsiness or distraction in the driver, it sends
+a voice message or an alarm asking the drivers to the car and take rest for this method is more
+practical and yields more accurate result. The Face Recognition System algorithm compares
+the present driver’s facial coordinates and retinal pattern with the patte rns that is already
+stored and fed into the system. When the patterns do not match, the sensor activates the alarm
+to alert the driver. If there is mismatching of the patterns for a long duration of time, a voice
+message is sent, asking the drive to stop and take rest. Drowsiness or distraction can be
+monitored easily through the driver’s facial expression. Apart from using Steering pattern
+monitoring and Vehicle position in lane monitoring that are used in high -end cars, Facial
+Recognition is easier to determine the driver’s behavior. This technology can be
+implemented in cars that have reasonable costs and that is affordable by all.
+1Automation in Cars to Alert Drivers
+Introduction
+This system gives high accuracy rate and low error detection with a quick processing of input
+data. Along with these features it is also cost efficient and easily implementable and
+installable in every type of vehicle, thus minimizing the number of accidents caused by
+driver’s drowsiness to a great extent
+1.2 Problem Statement
+•A driver’s drowsiness is conceived as one of the major causes of road accidents.
+•Every year about 421000 people injured in crashes those have involved a driver who was
+distracted in some way. 78% of all distracted drivers are distracted because they have been
+texting while driving.
+•
+Under fatigue the driver is unable to respond effectively since his attention is decreased and
+he has a reduced decision-making capability.
+1.3 Significance and Relevance of Work
+•Minimize the number of accidents caused by driver’s fatigue and distraction.
+•Ensure the safety of the driver.
+•System has high accuracy rate and low error detection with quick processing of data.
+•Cost efficient and easily implementable and installable in every type of vehicle.
+1.4 Objective
+•A system for real time monitoring is proposed by deployment of sensors.
+•Continuous monitoring of the data is done by collecting the data available from the
+sensors and compared with the standard data stored.
+•This technology is reasonable and assures road safety to citizen.
+1.5 Methodology
+The system detects drowsiness by analyzing eye closures and head poses to determine fatigue
+and distraction. When the system detects signs of drowsiness or distraction in the driver, it
+sends a voice message or an alarm asking the drivers to the car and take rest for this method
+is more practical and yields more accurate result.
+The Face Recognition System algorithm compares the present driver’s facial coordinates and
+retinal pattern with the patterns that is already stored and fed into the system. When the
+patterns do not match, the sensor activates the alarm to alert the driver. If there is mis-
+Govt. of Karnataka, Dept. of R&D, SJCIT
+2
+2019-20Automation in Cars to Alert Drivers
+Introduction
+matching of the patterns for a long duration of time, a voice message is sent, asking the drive
+to stop and take rest. Drowsiness or distraction can be monitored easily through the driver’s
+facial expression. Apart from using Steering pattern monitoring and Vehicle position in lane
+monitoring that are used in high-end cars, Facial Recognition is easier to determine the
+driver’s behavior. This technology can be implemented in cars that have reasonable costs
+and that is affordable by all.
+1.6 Organization of the Report
+In this system, we are developing an application using image processing. Here, the proposed
+system provides application for monitoring the driver’s behavior and signals them in case of
+drowsiness. The sensor camera that is used is installed either near the rear-view mirror or
+near the speedometer console (the dashboard). The literature review is discussed in which
+different authors have proposed their ideas using different techniques. The advantages and
+disadvantages are explained clearly in this chapter. The journal papers referred are also
+mentioned.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+3
+2019-20CHAPTER 2
+LITERATURE SURVEYCHAPTER – 2
+LITERATURE SURVEY
+2.1 Detecting drowsiness while driving by measuring eye movement-A pilot
+study
+Authors: Takchito Hayami, Katsuya Matsunaga, Kazunori Shidoji, and Yuji Matsuki
+In this relevant paper, A function to warn a drowsy driver is a prospective device to be
+included in the intelligent transportation systems. We compared eye closure rate between
+wakeful and drowsy states of drivers who were driving a car . In the drowsy state condition,
+measurement showed high values .In frequency, which was enough to distinguish between
+the two states with a threshold. The threshold level, which could distinguish the two states
+,was define as rate of cross point of the curves two density function made by the frequency of
+the rates of the two measures at the two states. An intelligent warning system based on an
+automatic detection of the human physiological phenomena related to the drowsy state,
+would help to prevent car collisions. However, that several phenomena precede the action of
+sleeping at wheel. Blink rate or a long duration of eyelid closure and eye movements are
+reported to have relationship with drowsy state.
+Disadvantages
+➢ Negative scores in drowsy condition.
+2.2 Drowsiness, Fatigue and Poor Sleep’s Causes and Detection: A
+Comprehensive Study
+Authors: M. Ahmad Kamran, Malik M. Naeem Mannan and Myung Yung Jeong
+Drowsiness/sleepiness is a serious issue that needs to be addressed for improvement in the
+safety of road driving. Past statistical data on road accidents has shown enormous increases in
+car crashes due to drowsy/sleepy feelings. This study comprehensively summarizes all
+aspects of the drowsy state and its effects during car driving: its symptoms, causes,
+presentation actions, car accident statistics, sleep stages, and the behavioral, physiological
+and neural activation changes occurring during wakefulness and in the drowsy state. It
+considers drivers’ behavioral data and corresponding methodologies for its analysis, the
+biomedical signals of the human body (including neuronal signals in the forms of electrical
+and hemodynamic responses), and their use for drowsiness detection.
+5Automation in Cars to Alert Drivers
+Literature Survey
+2.3 A Mobile Application for Driver’s Drowsiness Monitoring based on
+PERCLOS Estimation
+Authors: G. Soares, D. de Lima, and A. de Miranda
+Drowsiness is characterized by reduced level of vigilance and concentration, which ar e
+essential during driving activity. Due to this adversity, many applications of drowsiness
+detection had been continuously developed through electrical body signals to alert the driver
+at the time when sleepiness is identified, such as heart rate variability (HRV) and
+electroencephalogram (EEG). Although these methods work, the use of electrodes in the
+driver’s body is highly invasive. Therefore, we propose a drowsiness detection system based
+on driver’s real time video capture, by estimating the percentage of eyelid closure over a
+period, without any contact device. Since the use of smartphones has been growing in the last
+decade, the system has been implemented in a mobile phone even with memory and
+processing limitations. Processing reduction procedures were developed to improve the
+application performance, such as the reduction of the region of interest and the limitation of
+the search window, which increased by 93.09% the number of frames per second and allowed
+the application to operate smoothly.
+2.4 Machine Learning and Gradient Statistics Based Real-Time Driver
+Drowsiness Detection
+Authors: Cyun-Yi Lin , Paul Chang, Alan Wang, and Chih-Peng Fan
+In this paper, the machine learning and gradient statistics based driver drowsiness detection is
+developed for the real-time application. The proposed system includes four parts, which are
+the face detection, the eye-glasses bridge detection, the eye detection, and the eye closure
+detection. The system uses grayscale images without any color information, and it wor ks
+effectively in daytime and night time. For the face detection, the system uses the machine
+learning to detect face position and face size, and the face geometrical position is used to
+reduce the searching range of eyes. Next, the proposed eye detection algorithm f or the eye
+location is separated into two different modes to judge whether the driver wears glasses or
+not. Finally, the system detects driver’s eye state in the eye region. If the driver closes their
+eyes during an enough time, does not concentrate on driving, or nods his head, the system
+generates an alarm to notify the driver. In experimental results, the average processing frame
+rates are up to 245 fps in a PC (i7, 2.59GHz). The average detection rate of eye closure is
+Govt. of Karnataka, Dept. of R&D, SJCIT
+6
+2019-20Automation in Cars to Alert Drivers
+Literature Survey
+91.49 % when the driver wears glasses, and the corresponding detection rate is 95% when the
+driver does not wear glasses.
+Disadvantages
+➢ Not suitable for people who use spectacles
+2.5 Unobtrusive Driver Drowsiness Prediction using Driving Behavior from
+Vehicular Sensors
+Authors: Omid Dehzangi and Selvamani Masilamani
+Falling asleep is an eventual result of drowsiness, while driving it might also be a cause of
+major disasters. Driver’s oblivious attempt of driving a vehicle when they are drowsy will
+lead to life-threatening accidents and even fatality. In this paper, we developed a framework
+to capture the drowsiness state of the driver using vehicle measures in an unobtrusive way. A
+well experimented simulated driving environment was employed to monitor the driver’s
+drowsiness based on the acceleration, braking, and steering wheel axis pattern of the vehicle.
+A number of methods have been used in the past to detect the drowsiness in the driver and
+most of them involve intruding the driver which could annoy the driver in some
+circumstances during the experiment as well as in real time. In this paper, two individual
+prediction models are proposed, through comparing the Ensemble classifier and Decision -
+Tree algorithms. Though there are existing drowsiness detection systems already evolving in
+the automobile industries, the proposed model utilizes vehicular measures along with the
+subjective measure to build the prediction model to identify the driver’s drowsiness with
+greater accuracy, which is cost effective and more importantly unobtrusive to the driver’s
+normal activities especially into their privacy inside the vehicle.
+Disadvantages
+➢
+There is no high accuracy rate and detection of errors is difficult.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+7
+2019-20Automation in Cars to Alert Drivers
+Literature Survey
+2.6 Method of Detection of Early Falling Asleep While Driving using EOG
+Analysis
+Authors: Jinan Deeb , Firas Zakaria and Walid Kamali
+The main interest of this study is to find a system that could detect typical signs of
+drowsiness progression and warn a car driver before driving behavior becomes dangerous.
+An early detection of impaired conditions due to drowsiness would probably lead to a
+reduction in traffic accidents. In this matter, a lot of researches have already been done but
+although many detection devices are available on the market today, the validity of most of
+them needs to be confirmed. The aim of this project is to develo p and test a model for
+detection and categorization of driver drowsiness by evaluating EOG data from a number of
+test subjects. The data were recorded using an advanced module system and used to simulate
+normal and sleepy drivers. The empirical mode decomposition method is proposed as a signal
+decomposition tool. This kind of methods is useful for the analysis of natural and non -
+stationary processes. Some parameters are calculated for each intrinsic mode function (IMF).
+EMD (data-driven filtering technique that decomposes a time series into various components
+called Intrinsic Mode Functions) is proved to be adaptive and highly efficient in the analysis
+of such signals and the proposed parameters provided significant differences between normal
+and sleepy status.
+Disadvantages
+➢ There’s no good differentiation between awake and sleepy status.
+2.7 Real-Time Face Recognition Using Feature Combination
+Authors: Chahab Nastar and Matthias Mitschk
+In this paper, Images of people are recorded with a static camera. Rough face detection is
+performed, and the resulting images are stored in a database. At a future time, a person
+standing in front of the camera is identified, if their image was present in the database. In our
+experiments, the main variation of the faces is wide pose variation (out-of-image plane
+rotation of the head); some scale variation was also present. For real-time ability, we use
+simple image features and a voting procedure for performing face recognition. The system is
+based on simple image feature computation and their combination using a simple voting
+Govt. of Karnataka, Dept. of R&D, SJCIT
+8
+2019-20Automation in Cars to Alert Drivers
+Literature Survey
+procedure. The proposed technique allows for real-time ability. The system performed very
+well on our different experiments.
+Disadvantages
+➢ Takes more time for different person as the system needs to recognize it
+2.8 Smart phone application for drowsiness detection during driving
+Authors: Guksa, B and Erkmen
+In this study, with the help of the front camera of a smart phone, decreasing the possibility of
+accident by analyzing the state of sleep from the movements of the driver and the car is
+aimed and a program which informs the driver's relatives via sending them a short message
+service in case of an accident is worked on. With the designed algorithms, state of sleep of
+the driver is controlled by perceiving the movement of eyelid from the f ront camera of the
+phone. Besides the learnt from eyelid, if the number of blinking is less or more than the
+normal and if the immobility of the driver is perceived and the speed change read f rom GPS
+is more; the driver is given a warning of “You're falling asleep!”
+Disadvantages
+➢ The system requires GPS module for communication
+2.9 Individual Stable Space: An Approach to Face Recognition under
+Uncontrolled Conditions
+Authors: Xin Geng, Zhi-Hua Zhou, and Kate Smith-Miles
+There usually exist many kinds of variations in face images taken under uncontrolled
+conditions, such as changes of pose, illumination, expression, etc. Most previous works on
+face recognition (FR) focus on particular variations and usually assume the abse nce of others.
+Instead of such a “divide and conquer” strategy, this paper attempts to directly address f ace
+recognition under uncontrolled conditions. The key is the individual stable space (ISS), which
+only expresses personal characteristics. A neural network named ISNN is proposed to map a
+raw face image into the ISS. After that, three ISS-based algorithms are designed for FR under
+uncontrolled conditions. There are no restrictions for the images fed into these algorithms.
+These advantages make them practical to implement under uncontrolled conditions. FR
+systems achieved good performance in the latest report of Face Recognition Vendor Test , yet
+many issues still remain to be addressed. Among those issues, perhaps the most prominent
+Govt. of Karnataka, Dept. of R&D, SJCIT
+9
+2019-20Automation in Cars to Alert Drivers
+Literature Survey
+one is that most systems require the face images fed to them to satisfy certain “rules,” such as
+within a particular range of view angle, under homogeneous illumination, or without any
+occlusions. Such systems are called face recognition under controlled conditions (FRC). In
+fact, these rules greatly restrict the commercialization of the FR techniques because most real
+applications cannot satisfy such strict rules. What the real world needs are systems that can
+recognize any face images recognizable by human beings. Such systems are called face
+recognition under uncontrolled conditions (FRU)
+Disadvantages
+➢ The problem might be partly solved by simulating different variations from single face image,
+such as the methods designed for addressing the problem of FR with one training image per
+person
+Govt. of Karnataka, Dept. of R&D, SJCIT
+10
+2019-20CHAPTER 3
+SYSTEM ANALYSISCHAPTER – 3
+SYSTEM ANALYSIS
+3.1 Introduction to System Analysis:
+According to the statistics, around 20% of the road accidents are caused due to driver fatigue.
+A very effective and an intelligent system built into vehicles can minimize the accident death
+toll caused due to driver fatigue and drowsiness. In th is scenario, a system based on most
+modern Machine learning concept would help us in such a way that it can reduce the
+occurrence of accidents to a great extent. The system can be deployed in a running
+environment of a vehicle, wherein the driver in the vehicle will be alerted of his drowsiness,
+thus reducing the rate of accidents. In this model, a camera is fitted in the car, which monitors
+the face and then the facial features are detected. The parameter involved in the monitoring
+are the eye blink detection.
+The system gives high accuracy rate and low error detection with a quick processing of input
+data. Along with these features it is also cost efficient and easily implementable and
+installable in every type of vehicles, thus minimizing the number of ac cidents caused by
+driver’s drowsiness to a great extent. The system can be directly interfaced with the ECU of
+the vehicle to tap out the accelerator signal and thus we can monitor the abnormality in
+acceleration, in case the driver is unconscious. Along with this the system has a GSM module
+fitted along with it, which sends signal to the intended phone numbers in case of abnormality
+in any of the monitoring parameter.
+3.2 Exisitng System:
+A driver who falls asleep behind the wheels loses the control of the veh icle. In order to
+prevent accidents, the state of driver’s drowsiness should be monitored. The following
+measures are widely used for monitoring drowsiness:
+3.2.1 Steering Wheel Movement (SWM):
+There is a number of metrics inculcated today including deviations f rom lane position,
+pressure on the acceleration pedal, movement of the steering wheel, etc. This is done by
+placing sensors on various components of the vehicle; the signal sent by these sensors are
+then analysed to determine the drowsiness level. The steering wheel movement is measured
+using steering angle sensor (SAS) which is located in a sensor cluster in the steering column.
+12Automation in Cars to Alert Drivers
+System Analysis
+Cars companies like Nissan, Mercedes have adopted SWMs but these work in very limited
+situations as they work only at particular environments and also the nature of the road.
+3.2.2 Lane Departure Warning System:
+LDWS is another measure which warns the driver when the vehicle begins to move out of its
+lane. The position of the lane is tracked by using an external camera. This measure is
+dependent on factors like road marking, lane division and lighting condition. This system
+uses the principle of Hough transform and Canny edge detector to detect lane lines from real
+time camera images fed from the external camera. Major automakers like BMW, Audi,
+Nissan, Ford, and many more have integrated different forms of lane assistance systems in
+their new car models. However, vehicle-based measures like Steering Wheel Movement and
+Lane Departure Warning Systems are not specific to drowsiness. Deviation of lane position
+and irregular steering movement can also be caused by driving under influence of alcohol or
+drugs.
+3.2.3 Physiological Measures:
+Electrocardiogram (ECG), electromyogram (EMG), electroencephalogram (EEG) and
+electro-oculogram (EOG) are the physiological signals used to detect drowsiness. EOG signal
+are used to identify driver drowsiness through eye movement by measuring EOG signal using
+electric potential difference between the cornea and the retina which generates an electric
+field that reflects orientation of the eyes. Heart Rate Variability is a physiological
+phenomenon measured by variation in beat-to-beat interval in the heart rate. The heart rate
+which varies through different stages of drowsiness can be determined easily by ECG signal.
+EEG is a method to record electrical activity of the brain. It is measured in various frequency
+bands- delta, theta, beta and the alpha band. Decrease in the alpha frequency band and
+increase in the theta frequency band indicates drowsiness. Though the signals produced by
+these measures are accurate, these systems are intrusive in nature
+Govt. of Karnataka, Dept. of R&D, SJCIT
+13
+2019-2020Automation in Cars to Alert Drivers
+System Analysis
+3.3 Proposed System:
+A drowsy person displays various characteristic facial movements like rapid and constant
+blinking, nodding, swinging their head, eyelid closure at irregular interval. The system we
+propose includes continuous monitoring of facial features of the driver, and alerting him
+primarily by using alarm buzzer, and can alert any others by the means of SMS through GSM
+communication.
+Apart from that the system monitors the car battery voltage continuously and gives an alert to
+the driver upon any abnormality in the battery. Parallel to the operation, the system
+continuously monitors the accelerator signal of the vehicle, tapped directly from the ECU of
+the vehicle.
+The proposed system gives high accuracy rate and low error detection and warns the onset of
+drowsiness.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+14
+2019-2020CHAPTER 4
+SYSTEM
+REQUIREMENTS AND
+SPECIFICATIONSCHAPTER – 4
+SYSTEM REQUIREMENTS AND SPECIFICATION
+4.1 Functional Requirements:
+The purpose of this project is to investigate the development of a system for detecting the
+likelihood that a driver is about to fall asleep in control of the vehicle, and to sound an alarm
+or carry out some other function if this occurs. The system will be primarily based on the use
+of a small camera mounted on the vehicle dashboard which will locate and "track" the
+driver's eyes, and on this basis attempt to detect if the driver is about to fall asleep.
+For example, if the eyes close and remain closed for a certain period of time, this may
+indicate that the driver has fallen asleep and that a crash is imminent. Alternatively, if the
+eyes start to fall towards the bottom of the image (in a video sequence), this might suggest
+that the driver's head is starting to droop. The reliability and robustness of the system may be
+enhanced by making use of additional sensing devices and combining all of the inf ormation
+in a "sensor fusion" environment.
+4.1.1 Python:
+Python is an easy to learn, powerful programming language. It has efficient high -level data
+structures and a simple but effective approach to object-oriented programming. Python’s
+elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal
+language for scripting and rapid application development in many areas on most platforms.
+The Python interpreter is easily extended with new functions and data types implemented in
+C or C++ (or other languages callable from C). Python is also suitable as an extension
+language for customizable applications. Python has a way to put definitions in a file and use
+them in a script or in an interactive instance of the interpreter. Such a file is called a module;
+definitions from a module can be imported into other modules or into the main module (the
+collection of variables that you have access to in a script executed at the top level and in
+calculator mode).A module is a file containing Python definitions and statements. The file
+name is the module name with the suffix .py appended. Within a module, the module’s name
+(as a string) is available as the value of the global variable name . Modules can import
+other modules. It is customary but not required to place all import statements at the beginning
+16Automation in Cars to Alert Drivers
+System Requirements and Specification
+of a module (or script, for that matter). The imported module names are placed in the
+importing module’s global symbol table.
+NumPy: NumPy which stands for Numerical Python, is a library for the Python
+programming language, adding support for large, multi-dimensional arrays and matrices,
+along with a large collection of high-level mathematical functions to operate on these arrays.
+NumPy is open-source software and has many contributors. The core functionality of NumPy
+is its "ndarray", for n-dimensional array, data structure. These arrays are strided views on
+memory. In contrast to Python's built-in list data structure, these arrays are homogeneously
+typed: all elements of a single array must be of the same type. Using NumPy, a developer can
+perform the following operations :
+->Mathematical and logical operations on arrays.
+->Fourier transforms and routines for shape manipulation.
+->Operations related to linear algebra. NumPy has in-built functions for linear algebra and
+random number generation.
+NumPy is often used along with packages like SciPy (Scientific Python) and Mat−plotlib
+(plotting library).
+OpenCV (Open Source Computer Vision) : OpenCV (Open Source Computer Vision) is a
+library of programming functions mainly aimed at real-time computer vision. In simple
+language it is library used for Image Processing. It is mainly used to do all the operation
+related to Images.
+OpenCV-Python makes use of Numpy, which is a highly optimized library for numerical
+operations with a MATLAB-style syntax. All the OpenCV array structures are converted to
+and from Numpy arrays. This also makes it easier to integrate with other libraries that use
+Numpy such as SciPy and Matplotlib.
+Dlib: is a modern cross platform library written in C++ toolkit containing machine learnin g
+algorithms and tools for creating complex software to solve real world problems.
+Keyboard : module helps to enter keys, record the keyboard activities and block the keys
+until a specified key is entered and simulate the keys.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+17
+2019-20Automation in Cars to Alert Drivers
+System Requirements and Specification
+SciPy : is a library that uses NumPy for more mathematical functions. SciPy uses NumPy
+arrays as the basic data structure, and comes with modules for various commonly used tasks
+in scientific programming, including linear algebra, integration (calculus), ordinary
+differential equation solving, and signal processing. Both NumPy and SciPy are Python
+libraries used for used mathematical and numerical analysis. NumPy contains array data and
+basic operations such as sorting, indexing, etc whereas, SciPy consists of all the numerical
+code.
+4.1.2 Embedded C:
+Embedded C is a set of language extensions for the C programming language by C standard
+committees to address commonality issues that exist between C extensions for
+different embedded systems.
+Embedded C programming typically requires nonstandard extensions to the C language in
+order to support enhance microprocessor features such a fixed point arithmetic, multiple
+distinct memory banks and basic I/O operations. In 2008, the C Standards Committee
+extended the C language to address such capabilities by providing a common standard for all
+implementations to adhere to. It includes a number of features not available in normal C, such
+as fixed-point arithmetic, named address spaces and basic I/O hardware addressing.
+Embedded C uses most of the syntax and semantics of standard C, e.g., main() function,
+variable definition, datatype declaration, conditional statements (if, switch case), loops
+(while, for), functions, arrays and strings, structures and union, bit operations, macros.
+4.2 Non-Functional Requirements:
+Non functional requirement describe the user aspects of the system that are not directly
+related with the functional behavior of the system. The proposed system has to accommodate
+the following non-functional requirements.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+18
+2019-20Automation in Cars to Alert Drivers
+System Requirements and Specification
+4.3 Hardware Requirements and Software Requirements
+4.3.1 Hardware Requirements
+The system has two main modules: The Image Processing Unit and the Microcontroller
+unit.
+1.
+The Image Processing Unit
+It consists of a Raspberry pi 4B board, which is having an ARM based processor. It
+is used for most modern Automation technologies. It has a high-speed processor
+which has 4GB RAM and an external storage space of 16GB. It is running on
+Raspbian OS, which is a Linux based operating system. The camera module used
+in the system is Pi Camera, which is directly interfaced with the processor.
+The features of the raspberry pi 4 are;
+•
+Broadcom BCM2711, Quad core Cortex-A72 (ARM v8) 64-bit SoC @
+1.5GHz
+•
+4GB LPDDR4-3200 SDRAM (depending on model)
+•2.4 GHz and 5.0 GHz IEEE 802.11ac wireless, Bluetooth 5.0, BLE
+•Gigabit Ethernet
+•2 USB 3.0 ports; 2 USB 2.0 ports.
+•Raspberry Pi standard 40 pin GPIO header
+•2 × micro-HDMI ports (up to 4kp60 supported)
+•2-lane MIPI DSI display port
+•2-lane MIPI CSI camera port
+•4-pole stereo audio and composite video port
+•H.265 (4kp60 decode), H264 (1080p60 decode, 1080p30 encode)
+•OpenGL ES 3.0 graphics
+•Micro-SD card slot for loading operating system and data storage
+•5V DC via USB-C connector (minimum 3A*)
+•5V DC via GPIO header (minimum 3A*)
+•Power over Ethernet (PoE) enabled (requires separate PoE HAT)
+•Operating temperature: 0 – 50 degrees C ambient
+The Pi Camera Module has a Sony IMX219 8-megapixel sensor (compared to the
+5megapixel OmniVision OV5647 sensor of the original camera). The Camera Module can be
+used to take high-definition video, as well as stills photographs.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+19
+2019-20Automation in Cars to Alert Drivers
+2.
+System Requirements and Specification
+The Microcontroller Unit
+The microcontroller unit consists of power supply module, GSM module along
+with antenna, STM32F0 microcontroller, Accelerator monitoring module, car
+battery monitoring module and a display to show the drowsiness condition.
+3. STM32 Microcontroller:
+The STM32F051xx microcontrollers incorporate the high-performance ARM®
+Cortex®-M0 32-bit RISC core operating at up to 48 MHz frequency, high -speed
+embedded memories (up to 64 Kbytes of Flash memory and 8 Kbytes of SRAM),
+and an extensive range of enhanced peripherals and input and outputs.
+4. SIM800: The features of this module are;
+SIM800 supports Quad-band 850/900/1800/1900MHz, it can transmit Voice, SMS
+and data information with low power consumption. It features Bluetooth and
+Embedded AT.
+SIM800 GSM modules have inbuilt Bluetooth stack compliant with 3 .0+EDR &
+FM radio support, and the interface is accessible using AT commands. SIM800
+modem operates from 3.4V to 4.4V supply range.
+General features;
+•
+Quad-band 850/900/1800/1900MHz
+•GPRS multi-slot class 12/10
+•GPRS mobile station class B
+•Compliant to GSM phase 2/2+
+– Class 4 (2 W @ 850/900MHz)
+– Class 1 (1 W @ 1800/1900MHz)
+•Bluetooth: compliant with 3.0+EDR
+•Dimensions: 24*24*3mm
+•Weight: 3.14g
+•Control via AT commands
+•(3GPP TS 27.007,27.005 and SIMCOM enhanced AT Commands)
+•Supply voltage range 3.4 ~ 4.4V
+Govt. of Karnataka, Dept. of R&D, SJCIT
+20
+2019-20Automation in Cars to Alert Drivers
+System Requirements and Specification
+•Low power consumption
+•Operation temperature: -40℃ ~85℃
+Specifications for SMS via GSM/GPRS;
+•
+Point to point MO and MT
+•SMS cell broadcast
+•Text and PDU mode
+•Software features
+•0710 MUX protocol
+•Embedded TCP/UDP protocol
+•FTP/HTTP
+•MMS
+•E-MAIL
+•DTMF
+•Jamming Detection
+•Audio Record
+•TTS (optional)
+•Embedded AT (optional)
+5. Accelerator monitoring module: The IAM-20680 is a 6-axis Motion Tracking
+device for automotive applications that combines a 3-axis gyroscope and a 3 -axis
+accelerometer in a small 3x3x0.75mm (16-pin LGA) package. It also features a
+512- byte FIFO that can lower the traffic on the serial bus interface and reduce
+power consumption by allowing the system processor to burst read sensor data and
+then go into a low-power mode. IAM-20680, with its 6-axis integration, enables
+manufacturers to eliminate the costly and complex selection, qualification, and
+system level integration of discrete devices, guaranteeing optimal motion
+performance. The gyroscope has a programmable full-scale range of ±250 dps,
+±500 dps, ±1000 dps, and ±2000 dps. The accelerometer has a user-programmable
+accelerometer full-scale range of ±2g, ±4g, ±8g, and ±16g. The device features I2C
+and SPI serial interfaces, a VDD operating range of 1.71V to 3.6V, and a separate
+digital IO supply, VDDIO from 1.71V to 3.6V.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+21
+2019-20Automation in Cars to Alert Drivers
+System Requirements and Specification
+6. RS485: The MAX13487 is +5V, half -duplex, ±15kV ESD-protected RS-485/RS-
+422compatible transceivers feature one driver and one receiver. The MAX13487
+include a hot-swap capability to eliminate false transitions on the bus during
+power-up or live insertion. The MAX13487 feature Maxim’s proprietary Auto
+Direction control. This architecture makes the devices ideal for applications, such
+as isolated RS-485 ports, where the driver input is used in conjunction with the
+driver-enable signal to drive the differential bus.
+4.3.2 Software Requirements
+The system has two main modules;
+The Image Processing Unit and the Microcontroller unit.
+1. The Image Processing Unit
+It is running on a Linux environment as Docker application on an Arm processor.
+The application is coded in python scripting language and uses most modern
+Machine Learning library called NumPy. The application extracts the features out
+of the face and classifies according to the machine learning concepts.
+2. The Microcontroller Unit
+It consists of STM32 Microcontroller, which controls peripheral devices such as
+the GSM module, Bluetooth transmitter and receiver, Alarm Buzzer and Car
+battery monitoring module. Microcontroller is programmed in Embedded C
+language and it’s a Hardware Abstract Layer (HAL) code. The driver program
+flashed inside the microcontroller controls all the devices connected to it.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+22
+2019-20CHAPTER 5
+SYSTEM DESIGNCHAPTER - 5
+SYSTEM DESGIN
+5.1 System architecture
+Figure 5.1 Block Diagram of Project.
+The Face Recognition System algorithm compares the present driver’s facial coordinates and
+retinal pattern with the patterns that is already stored and fed into the system. When the
+patterns do not match, the sensor activates the alarm to alert the driver. If there is mis-
+matching of the patterns for a long duration of time, a voice message is sent, asking the drive
+to stop and take rest. Drowsiness or distraction can be monitored easily through the driver’s
+facial expression. Apart from using Steering pattern monitoring and Vehicle position in lane
+monitoring that are used in high-end cars, Facial Recognition is easier to determine the
+driver’s behavior. This technology can be implemented in cars that have reasonable costs
+and that is affordable by all. A drowsy person displays various characteristic facial
+movements like rapid and constant blinking, nodding, swinging their head, eyelid closure at
+irregular interval. The system we propose includes continuous monitoring of facial features
+24Automation in Cars to Alert Drivers
+System Design
+of the driver, and alerting him primarily by using alarm buzzer, and can alert any others by
+the means of SMS through GSM communication. Apart from that the system monito rs the car
+battery voltage continuously and gives an alert to the driver upon any abnormality in the
+battery. This shows the block diagram of architectural design of the model. The Image
+Processing Unit used in the system works on modern Machine Learning Algorithms, that
+monitors the facial features of a human being. Different facial features such as eyes, nose,
+mouth and eyebrows can be easily monitored by the algorithms used in the system. The
+image processing unit is being deployed in a Linux environment, which runs on an Arm
+processor. The application for monitoring the facial features runs as a Docker, independent of
+other processes. Upon detecting any unusual behavior in the driver’s face, who is being
+monitored, the system will raise a Flag which in turn gives signal to the STM32
+Microcontroller. The Microcontroller issues proper
+5.2 Use Cases
+Figure 5.2 Use Case Diagram
+Govt. of Karnataka, Dept. of R&D, SJCIT
+25
+2019-20Automation in Cars to Alert Drivers
+System Design
+The system will perform the following use cases and relations:
+1. Get System Info: User can get general information about the application.
+2. Configure Phone No: The user can configure 4 different phone numbers to which
+SMS will be sent.
+3. Monitor accelerator signal and car battery: user can monitor the abnormality in
+accelerator signal and car battery.
+4. Alarm alert: User will receive a Alarm alert on drowsy detection for more than 2
+second.
+5. SMS Notification: SMS is sent to the phone number registered if the driver still
+continues to be in drowsy state for more than 5 seconds.
+5.2 Data Flow diagram
+Figure 5.3 data flow diagram
+Govt. of Karnataka, Dept. of R&D, SJCIT
+26
+2019-20Automation in Cars to Alert Drivers
+System Design
+A Data-Flow Diagram is a way of representing a flow of a data of a process or inf ormation
+System. The DFD also provides information about the outputs and inputs of each entity and
+the process itself. A dataflow diagram has no control flow, there are no decision rules and no
+loops. Specific operations based on the data can be represented by a flowchart.
+The image is captured from the camera, which monitors the rate of eye blink. These data is
+analyzed to detect if the driver is falling asleep or awake, when the rate of blink is greater
+than 2.5 seconds it is considered as sleepy condition. This signal is sent to microcontroller
+and it activates buzzer alarm and also a SMS is sent to corresponding phone through GSM
+module
+Govt. of Karnataka, Dept. of R&D, SJCIT
+27
+2019-20CHAPTER 6
+IMPLEMENTATIONCHAPTER – 6
+IMPLEMENTATION
+6.1 Components
+The system can be implemented on any 4-wheeler automotive on its dash board. The camera
+should be continuously facing the driver and upon any abnormality in the driver’s facial
+features, the system will activate the Alarm Buzzer and the GSM module to alert the driver as
+well as the concerned persons through SMS. Parallel to the operation, the system
+continuously monitors the accelerator signal of the vehicle, tapped directly from the ECU of
+the vehicle and also it monitors the car battery continuously. The concerned people can be
+alerted through SMS regarding the Battery status whereas the accelerator status can be taken
+for monitoring the driver’s drowsiness.
+The system is having an additional feature to control standard devices using the Potential
+Free Contacts (PFC) presented in it. Potential free contacts are contacts which do not have a
+voltage potential on them. That is , if a device must be connected to p otential f ree contacts,
+then no other circuit or device may be connected to the same contacts. This is also called
+sometimes as dry contact.
+6.1 .1 Power Supply and Load Dump:
+Basically, the power will be taken from car battery which is 12 V rated, which will b e
+converted to 5v, 3.3v and 4V respectively. 5V supply is for image processing board and other
+peripherals (The max current will be around 1.2A).
+3.3V for microcontroller and other circuits (max current will be around 500mA 4V f or GSM
+module (operating range from 3.6 to 4.2, max transmission burst current will be around 2A)
+29Automation in Cars to Alert Drivers
+Implementation
+Figure 6.1 Power Supply Block Diagram
+In automotive electronics, it refers to the disconnection of the vehicle battery from the
+alternator while the battery is being charged. Due to such a disconnection of the battery, other
+loads connected to the alternator see a surge in power line. The peak voltage of this surge
+may be as high as 120 V and the surge may take up to 400 ms to decay. It is typically
+clamped to 40 V in 12 V vehicles and about 60 V in 24 V systems.
+6.1 .2 Reverse Voltage Protection :
+•Electrical equipment against applying reverse voltage
+•By inserting a diode in between supply and equipment, we can protect the circuit
+against applying reverse voltage.
+•
+It acts as a one-way switch i.e., when the battery connected properly it is in forward
+biased and thus it will close the complete circuit.
+•
+If the battery connected in reverse manner, the diode is in reverse biased. It will block
+the supply. Thus, protect the electrical circuit.
+6.1 .3 GSM module:
+SIMCom presents an ultra-compact and reliable wireless module-SIM900. This is a complete
+Quad-band GSM/GPRS module in a SMT type and designed with a very powerful singlechip
+processor integrating AMR926EJ-S core, allowing you to benefit from small dimensions and
+cost-effective solutions. Featuring an industry-standard interface, the SIM900 delivers
+GSM/GPRS 850/900/1800/1900MHz performance for voice, SMS, Data, and Fax in a small
+form factor and with low power consumption. With a tiny configuration of 24mm x 24mm x
+Govt. of Karnataka, Dept. of R&D, SJCIT
+30
+2019-20Automation in Cars to Alert Drivers
+Implementation
+3 mm, SIM900 can fit almost all the space requirements in your M2M applications,
+especially for slim and compact demands of design.
+6.1 .4 Alarm buzzer:
+A buzzer or beeper is an audio signaling device, which may be electromechanical, or
+piezoelectric (piezo for short). Typical uses of buzzers and beepers include alarm devices,
+timers, and confirmation of user input such as a alarm etc.
+Figure 6.2 Alarm Buzzer
+6.1 .5 Embedded image processing unit:
+Figure 6.3 Embedded Image Processing Unit
+Mainly a processor board which all the peripherals will be connected to it like Bluetooth
+module, GMS carrier module and camera , which is used it to processing the video / images
+which is captured by the camera and sending the comments to the microcontroller unit
+through USART port, based on the input received by the microcontroller will process the
+required application based on the application logic .
+Govt. of Karnataka, Dept. of R&D, SJCIT
+31
+2019-20Automation in Cars to Alert Drivers
+Implementation
+6.1 .6 Bluetooth transmitter and receiver:
+Figure 6.4 Bluetooth Transmitter and Receiver
+Bluetooth transmitter / receiver same module will be used it for both application as receiver
+and transmitter , the software which will be coded as respectively, the transmitter which is
+used it for transmitting the pulse signals which is measured from the pulse sensor which is
+connected to the driver hand , in which signals will be sent to receiver , the receiver which
+process and sent it to microcontroller for further processing.
+6.2 PseudoCode:
+This document is to explain the python OpenCV code used for the face recognition. Part by
+part explanation of the code will be given below.
+Step-1: Importing required libraries
+1. Numpy is a library available in python which is used for Machine Learning
+applications. It also has functions for working in domain of linear algebra, Fourier
+transform, and matrices.
+2. OpenCV (Open Source Computer Vision) is a library of programming functions
+mainly aimed at real-time computer vision. In simple language it is library used for
+Image Processing. It is mainly used to do all the operation related to Images.
+3. Dlib is a modern cross platform library written in C++ toolkit containing machine
+learning algorithms and tools for creating complex software to solve real world
+problems.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+32
+2019-20Automation in Cars to Alert Drivers
+Implementation
+4. Keyboard module helps to enter keys, record the keyboard activities and block the
+keys until a specified key is entered and simulate the keys.
+5. SciPy is a library that uses NumPy for more mathematical functions. SciPy use s
+NumPy arrays as the basic data structure, and comes with modules for various
+commonly used tasks in scientific programming, including linear algebra, integration
+(calculus), ordinary differential equation solving, and signal processing. Both NumPy
+and SciPy are Python libraries used for used mathematical and numerical analysis.
+NumPy contains array data and basic operations such as sorting, indexing, etc
+whereas, SciPy consists of all the numerical code.
+Step-2: Defining the required facial features
+In this part, the required facial features are being defined with facial co -ordinates. Later we’ll
+set the threshold Counter value for a single eye-blink in the variable EYE_AR_THRESH. If
+the counter value exceeds 0.22, then the drive will be notified with an alarm and the
+concerned people will be notified with an SMS from the GSM module attached along with
+the system.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+33
+2019-20Automation in Cars to Alert Drivers
+Implementation
+Step-3: Function to define eye aspect ratio
+Eye Aspect Ratio (EAR) is used for calculating the eye blink. The Counter value update is
+depended upon the EAR.
+Step-4: Calling Dlib inside code
+In this part, the dlib functions are being called to accept a predefine shape predictor file. The
+library will process the file and will process the facial frames that gets derived from the
+camera.
+Step-5: Opening camera and start video
+Govt. of Karnataka, Dept. of R&D, SJCIT
+34
+2019-20Automation in Cars to Alert Drivers
+Implementation
+In this part, opencv is invoked to open the camera and start the video. Opencv is conf igured
+to read frame by frame data from the live video for processing. After getting each f rame, it
+will be converted to grayscale. Followed by that the frame size will be defined to make it as a
+proper gray scale image for further processing.
+Step-6: Processing the image
+In this part, firstly the required facial landmarks will be derived from the full gray scale
+image. In our case, we need the eyes. The particular landmark for left eye and right eye will
+be derived from the gray scale image in the variables left_eye and right_eye respectively.
+Later with the derived facial landmarks, the contours are being defined over it. After this
+step, the EAR for the right eye and left eye will be calculated separately. Soon after an
+average of both are being calculated to derive a final EAR.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+35
+2019-20Automation in Cars to Alert Drivers
+Implementation
+Step-7: Calculating the eye blink
+In this part, based on our final EAR, the counter value will be updated. Later the counter
+value will be compared to the threshold value which we defined earlier,
+the eye blink will be detected. That instant a GPIO will be activated from the raspberry pi to
+give a signal to the microcontroller module to activate the alarm and GSM module to send
+SMS to the concerned persons.
+If the person is awake, the EAR value will go down. That moment the GPIO will be
+deactivated and the microcontroller stops the alarm.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+36
+2019-20Automation in Cars to Alert Drivers
+Implementation
+Code Screen Shot in full
+Govt. of Karnataka, Dept. of R&D, SJCIT
+37
+2019-20Automation in Cars to Alert Drivers
+Govt. of Karnataka, Dept. of R&D, SJCIT
+Implementation
+38
+2019-20Automation in Cars to Alert Drivers
+Govt. of Karnataka, Dept. of R&D, SJCIT
+Implementation
+39
+2019-20CHAPTER 7
+SYSTEM TESTINGCHAPTER - 7
+SYSTEM TESTING
+7.1 Methods of Testing
+The methods of testing are:
+•Unit testing
+•System testing
+•Functional testing
+•Integration testing
+•User Acceptance testing
+7.1 .1 Unit Testing
+Unit testing as the name portrays that the testing procedure is completed with the testing
+where every individual model is tried in a steady progression. The operation to perf orm unit
+testing is to figure out where every module testing is approved or not. The investigation of
+testing gives the fruitful result and to perform correct report determination. The capacity of
+unit test additionally upgrades the level of testing before the reconciliation procedure. By
+testing every module, the blunders are recognized in before stages and this may prompt the
+yearning yield of the projects. Unit testing isolates every individual piece of modules and
+redresses whether the module is executed or not. The essential execution is to give an end -
+clients to enhancing the application programming, business handle and the level of
+framework setup
+7.1 .2 System Testing
+Framework Testing is one of the testing procedures where the fruition of testing stage is f or
+the most part relies on upon System. Framework testing gives the spine support to all the
+testing stage on the grounds that once the consummation of all the testing procedure the
+framework testing plays out the Hardware and Software Requirement Specifications and the
+Vehicle Over Speed Control in Restricted Areas Testing
+41Automation in Cars to Alert Drivers
+System Testing
+.
+7.1 .3 Functional Testing
+Functional testing is a type of software testing whereby the system is tested against the
+functional requirements. Functions are tested by feeding them input and examining the
+output. Functional testing ensures that the requirements are properly satisfied by the
+application. This type of testing is not concerned with how processing occurs, but rather, with
+the results of processing. It simulates actual system usage but does not make any system
+structure assumptions.
+7.1 .4 Integration Testing
+It is test where every one of the exhibitions are planned with the product testing procedure
+and individual set programming's are coordinated to perform in a gathering to run the one
+program. The fulfillment of this testing leads just when exhibitions of every necessities,
+programming modules and programming design. The yield execution makes when all
+reconciliation test modules are determined to play out the testing procedure with craving
+input. At long last mix testing furnishes end-client with accuracy of the yield with determined
+programming testing.
+7.2 Test cases
+No. of Test Case:1
+Name of the test:Feature being tested:Testing connection of system to power
+supply
+Power supply to the system
+Sample input:3.3 v voltage to the microcontroller
+Expected output:LED will show a log message
+Actual output:Display of “Hello” message on LED screen
+Remarks:Test case pass
+Table 7.1 Test case 1
+Figure7.1: Starting message in LCD display
+Govt. of Karnataka, Dept. of R&D, SJCIT
+42
+2019-20Automation in Cars to Alert Drivers
+System Testing
+No of Test Case:2
+Name of the test:Testing the detection of facial frame
+Feature being tested:Detection of facial frame captured from the
+camera
+Sample Input:Presence of the driver in front of the camera
+Expected Output:The facial frame is processed
+Actual Output:Process the facial frame to calculate the Eye
+Aspect Ratio
+Remarks:Test case pass
+Table 7.2 Test case 2
+No of Test Case:3
+Name of the test:Testing for raise of an alarm
+Feature being tested:When an alarm is generated
+Sample input:Eye blink for more than 2 seconds
+Expected output:Alarm beep is generated
+Actual output:Raise an alarm and notify driver on LCD
+screen
+Test case pass
+Remarks:
+Table 7.3 Test case 3
+Figure7.2 : Alert in LCD display
+Govt. of Karnataka, Dept. of R&D, SJCIT
+43
+2019-20Automation in Cars to Alert Drivers
+System Testing
+No. of Test Case:4
+Name of the test:Testing to check SMS generation
+Feature being tested:Generation of SMS alert sent to the registered
+number
+Sample input:Drowsy state for more than 5 seconds
+Expected output:System sends an SMS to registered number
+Actual output:The registered number receives a SMS about
+the drowsy state of the driver
+Remarks:Test case pass
+Table 7.4 Test case 4
+Figure7.3 : SMS to registered number
+Govt. of Karnataka, Dept. of R&D, SJCIT
+44
+2019-20CHAPTER 8
+PERFORMANCE
+ANALYSISCHAPTER - 8
+PERFORMANCE ANALYSIS
+8.1 Study system
+8.1.1 Feasibilty study
+Feasibility study tells us that how the system is feasible, what are its feasible conditions, how to
+achieve different types of feasibility. In the conduction of the feasibility study, the analyst will
+usually consider seven distinct, but inter-related types of feasibility.
+The Feasibility of project provides the various constraints to the quality of being weak or strong
+to plan the purpose of the business needs. To estimate the costs, performance, the designed
+implementation and the resource being defined for the environment. The various accepts that
+perform through the description of project, the operation of technical knowledge, managing the
+resources and mainly capable for the success. It is carried out during the proposed system, the
+future requirements may also includes the level of system resources.
+The feasibility study contains the three key:
+•Economic Feasibility
+•Technical Feasibility
+•Social Feasibility
+8.1.1.1 Economic Feasibility
+The Economic Feasibility provides the constraints that determine the quality and identifying the
+purpose of project,the investment offered by organizer to develop a system and the technologies
+is often used for the customer needs.
+8.1.1.2 Technical Feasibility
+The study of technical feasibility provides the aspects of technical knowledge to determine the
+system requirements and also designing the system resources. The modernized development of
+system is implemented for attracting the customers to define the project
+46Automation in Cars to Alert Drivers
+Performance Analysis
+8.1.1.3 Social Feasibility
+The study of social feasibility defines how the outside environment will accepts the system
+requirements. It is designed in such a way that how confidently and convincingly reaches to the
+user, the level of accepting the project and the defined requirement of project.
+8.2 Performance evaluation graph
+Figure 8.1 perclos vs time
+The system gives high accuracy rate and low error detection with a quick processing of
+input data. The system will continuously monitor the facial features of the driver and
+upon any unusual behavior like closing of eyes for more than 2.5 seconds will trigger the
+alarm buzzer. The system can be directly interfaced with vehicle accelerator and thus we
+can monitor the abnormality in acceleration and also detection of eye closure rate can be
+done in both day and night(light/dark). Thus improving the chances of detection of sleep.
+Govt. of Karnataka, Dept. of R&D, SJCIT
+47
+2019-20CHAPTER 9
+CONCLUSION
+AND
+FUTURE ENHANCEMENTCHAPTER – 9
+CONCLUSION AND FUTURE ENHANCEMENT
+9.1 Conclusion
+The main interest of this study is to find a system that could detect typical signs of
+drowsiness and warn a car driver before it’s too late. In this matter, a lot of researches have
+already been done but although many detection devices are available on the market today, the
+validity of most of them needs to be confirmed. Usually, there is no one who can see a driver
+falling asleep prior to a crash. It is much more difficult to identify a drowsy driving than
+drunk driving. In this paper, we have proposed a system that gives high accuracy rate and low
+error detection with a quick processing of input data. Along with these features it is also cost
+efficient and easily implementable and installable in every type of vehicle.
+.
+9.2 Future Enhancement
+The system can be further improved by combining with physiological sensors for more
+information such as heart rate variation during drowsiness. The proposed model is designed
+for detection of drowsy state of eye and gives an alert signal and warning through a n SMS.
+We can also further design and fit a motor driven system and synchronize it with the warning
+signal so that the vehicle will slow down after getting the warning signal automatically.
+49CHAPTER 10
+REFERENCESREFERENCES
+[1.] Methods of detection of early falling asleep while driving using EOG analysis, Jinan
+Deeb, FirasZakaria and WalidKamali, Tripoli, Lebanon, 2017 ICABME
+[2.] Early detection of falling asleep at the wheel: A heart rate variability approach, G
+Dorfman Furman, A Baharav C Cahan, S Akserlrod, Israel, 2008 IEEE.
+[3.] Detection drowsiness while driving by measuring eye movement - a pilot study,
+TakchitoHayami, Sfudcnr Member, IEEE, Katsuya Matsunaga, Kazunori Shido ji, and Yuji
+Matsuki, Member, 2002 IEEE.
+[4.] Prediction of the time when a driver reaches critical drowsiness level based on driver
+monitoring before and while driving, YutoHayata, Md. ShoaibBhuiyan, Haruki Kawanaka,
+and Koji Oguri, Member, 2013 IEEE
+[5.]EEG
+and
+HRV
+markers
+of
+sleepiness
+and
+loss
+of
+control during car
+driving,EmmanouilMichail, AthinaKokonozi, IoannaChouvarda., Member, IEEE and
+NicosMaglaveras, Senior Member, 2008 IEEE
+[6.] Investigation of drowsiness while driving utilising analysis of heart rate fluctuations,
+Gabriela Dorfman Furman1, Armanda Bahara Tel Aviv University, Tel Aviv, Israel,
+HypnoCore, Yehud, Israel, 2010 IEEE
+[7.] Sensitivity of heart rate variability as indicator of driver sleepiness, Manik
+Mahachandra1, Yassierli2, Iftikar Z Sutalaksana3, KadarsahSuryad Industrial Management
+Research Group Faculty ofIndustrial Technology,BandungInstitute of Technology Bandung,
+Indonesia, 2012 SEANES
+[8.] An Algorithm for Automatic Detection of Drowsiness for use in Wearable EEG Systems,
+Kwai C A Patrick, Syed Anas Imtiaz, Stuart Bowyer and Esther Rodriguez Villegas, 2016
+IEEE
+[9.] Driver leepiness Classification based on Physiological Data and Driving Performance
+from Real Road Driving, Henrik Martensson, Oliver Keelan and Christer Ahlstrom, 2019
+IEEE.
+[10.] https://en.m.wikipedia.org/wiki/Digital_image_processing
+[11] “Detecting Driver Drowsiness Based on Sensors: A Review”, Arun Sahayadhas,Kenneth
+Sundaraj and Murugappan Murugappan, Sensors 2012, ISSN 1424- 8220
+[12] Guidance of The Universal Systems, BGS R&D Centre and Dept of CSE, SJCIT
+51APPENDIX A
+ACRONYMSAPPENDIX A
+ACRONYMS
+ABBREVIATIONDESCRIPTION
+FSFace recognition system
+HRVHeart Rate Variability
+EEGelectroencephalogram
+IMFIntrinsic mode fucntion
+EMDData driven module
+EOGElectrooculography
+EMGElectromyography
+GSMGlobal System for Mobile
+SMSShort Message Service
+FRFace recognition system
+ISSIndividual stable space
+ISNNIndividual stable space neural network
+FRUFace recognition under controlled condition
+ECUengine control unit
+SWMSteering Wheel Movement
+SASSteering angle sensor
+LDWLane departure warning system
+OpenCVOpen source compute vision
+GPIOGeneral purpose input output pin
+USBUniversal Serial Bus
+FIFOFirst In, First Out
+ARMAdvanced RISC Machine
+HALHardware abstract layer
+FPSStepwise Multiple Linear Regression
+53APPENDIX B
+SNAPSHOTSAPPENDIX
+Appendix B: Screen Shots
+Figure B.1 PCB layout
+Figure B.2 Detection of sleepiness
+55Automation in Cars to Alert Drivers
+Appendix
+Figure B.3 Placement of the system in dashboard
+Figure B.4 Face recognition system
+Govt. of Karnataka, Dept. of R&D, SJCIT
+56
+2019-20Automation in Cars to Alert Drivers
+Appendix
+Figure B.5 differentiate between closed and open eye
+Govt. of Karnataka, Dept. of R&D, SJCIT
+57
+2019-20
